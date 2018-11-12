@@ -1,16 +1,58 @@
 <ion-header>
   <ion-toolbar>
+    <ion-title>
+      Gastos mes
+    </ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
   </ion-toolbar>
 </ion-header>
+ 
+<ion-content>
+  <div *ngFor="let cat of items" class="category-block">
+ 
+    <ion-row no-padding class="category-banner">
+      <ion-col text-left button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
+        <ion-icon name={{cat.icon}} item-end></ion-icon>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the
-    <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+        {{ cat.nombre }}
+      </ion-col>
+      <ion-col >
+        <ion-icon name="logo-usd"></ion-icon>
+        {{ cat.total }}
+      </ion-col>
+    </ion-row>
+ 
+    <ion-slides [options]="sliderConfig">
+      <ion-slide *ngFor="let gasto of cat.gastos">
+        <div *ngIf="cat.expanded">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                {{ gasto.nombre }} 
+               ${{ gasto.precioGasto }}
+              </ion-card-title>
+              <ion-card-content>
+                <ion-icon name="bookmarks"></ion-icon>
+                <ion-button expand="full">Ver detalle</ion-button>
+              </ion-card-content>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-slide>
+    </ion-slides>
+   
+ 
+  </div>
+  <ion-row no-padding class="category-banner">
+      <ion-col text-rigth button tappable  align-self-center>
+        <h2>Total = </h2>
+         
+      </ion-col>
+      <ion-col >
+        <ion-icon name="logo-usd"></ion-icon>
+        {{ totalGastos }}
+      </ion-col>
+  </ion-row>
 </ion-content>

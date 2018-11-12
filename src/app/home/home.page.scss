@@ -1,1 +1,39 @@
-
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+	
+ion-badge {
+    color: #fff;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-radius: 100%;
+}
+ 
+.category-block {
+    margin-bottom: 4px;
+}
+ 
+.category-banner {
+    border-left: 8px solid var(--ion-color-secondary);
+    background: var(--ion-color-light);
+    height: 40px;
+    padding: 10px;
+    font-weight: 500;
+}
